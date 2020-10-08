@@ -3,8 +3,6 @@ using System.Net.Sockets;
 using System.Text;
 using SGF;
 using SGF.Network.KCP;
-using UnityEngine;
-
 
 namespace Assets.UnityTest.KCPTest
 {
@@ -22,7 +20,7 @@ namespace Assets.UnityTest.KCPTest
             m_Name = name;
             LOG_TAG = "KCPPlayer[" + m_Name + "]";
 
-            IPAddress ipa = IPAddress.Parse(Network.player.ipAddress);
+            IPAddress ipa = IPAddress.Parse("127.0.0.1");
             m_RemotePoint = new IPEndPoint(ipa, remotePort);
 
             m_Socket = new KCPSocket(localPort, 1, AddressFamily.InterNetwork);

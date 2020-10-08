@@ -1,7 +1,4 @@
-﻿
-
-using SGF;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.UnityTest.KCPTest
 {
@@ -12,11 +9,9 @@ namespace Assets.UnityTest.KCPTest
         void Awake()
         {
             Debuger.EnableLog = true;
-            
-            this.Log("Awake()");
 
             p1 = new KCPPlayer();
-            p1.Init("Player1", 12345, 12346);
+            p1.Init("Server", 12345, 12346);
 
             p2 = new KCPPlayer();
             p2.Init("Player2", 12346, 12345);
@@ -27,21 +22,9 @@ namespace Assets.UnityTest.KCPTest
         {
             p1.OnUpdate();
             p2.OnUpdate();
-        }
 
-        void OnGUI()
-        {
-            if (GUILayout.Button("Player1 SendMessage"))
-            {
-                p1.SendMessage();
-            }
-
-            if (GUILayout.Button("Player2 SendMessage"))
-            {
-                p2.SendMessage();
-            }
+            p1.SendMessage();
+            p2.SendMessage();
         }
     }
-
 }
-
